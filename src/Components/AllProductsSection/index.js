@@ -1,5 +1,4 @@
 import {Component} from 'react'
-import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 
 import FiltersGroup from '../FiltersGroup'
@@ -205,11 +204,7 @@ class AllProductsSection extends Component {
     )
   }
 
-  renderLoadingView = () => (
-    <div className="products-loader-container">
-      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
-    </div>
-  )
+  
 
   renderAllProducts = () => {
     const {apiStatus} = this.state
@@ -219,8 +214,6 @@ class AllProductsSection extends Component {
         return this.renderProductsListView()
       case apiStatusConstants.failure:
         return this.renderFailureView()
-      case apiStatusConstants.inProgress:
-        return this.renderLoadingView()
       default:
         return null
     }
