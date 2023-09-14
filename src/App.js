@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route, Switch, redirect} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import LoginForm from './Components/LoginForm/index.js'
+import Home from './Components/Home/index.js'
+import Products from './Components/Products/index.js'
+import ProductItemDetails from './Components/ProductItemDetails/index.js'
+import Cart from './Components/Cart/index.js'
+import NotFound from './Components/NotFound/index.js'
+import ProtectedRoute from './Components/ProtectedRoute/index.js'
 
-export default App;
+import './App.css'
+
+const App = () => (
+  <Switch>
+    <Route exact path="/login" component={LoginForm} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/products" component={Products} />
+    <ProtectedRoute exact path="/products/:id" component={ProductItemDetails} />
+    <ProtectedRoute exact path="/cart" component={Cart} />
+    <Route path="/not-found" component={NotFound} />
+    <redirect to="not-found" />
+  </Switch>
+)
+
+export default App
