@@ -2,17 +2,16 @@ import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
-
+import Cart from "../Cart"
 import Header from '../Header'
 import SimilarProductItem from '../SimilarProductItem'
-
 import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
   failure: 'FAILURE',
-  inProgress: 'IN_PROGRESS',
+  
 }
 
 class ProductItemDetails extends Component {
@@ -104,6 +103,12 @@ class ProductItemDetails extends Component {
     this.setState(prevState => ({quantity: prevState.quantity + 1}))
   }
 
+  cartAdd=()=>{
+    const {productData,quantity}=this.state;
+    // console.log(quantity);
+    <Cart productData={productData} key={productData.id} quantity={quantity}/>
+  }
+
   renderProductDetailsView = () => {
     const {productData, quantity, similarProductsData} = this.state
     const {
@@ -164,7 +169,7 @@ class ProductItemDetails extends Component {
                 <BsPlusSquare className="quantity-controller-icon" />
               </button>
             </div>
-            <button type="button" className="button add-to-cart-btn">
+            <button type="button" className="button add-to-cart-btn" onClick={this.cartAdd}>
               ADD TO CART
             </button>
           </div>

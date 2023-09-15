@@ -135,6 +135,7 @@ class AllProductsSection extends Component {
         searchInput: '',
         activeCategoryId: '',
         activeRatingId: '',
+        activeOptionId: sortbyOptions[0].optionId
       },
       this.getProducts,
     )
