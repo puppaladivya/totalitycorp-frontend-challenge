@@ -15,7 +15,7 @@ const apiStatusConstants = {
 
   
 }
-
+const x=[];
 class ProductItemDetails extends Component {
   state = {
     productData: {},
@@ -108,7 +108,7 @@ class ProductItemDetails extends Component {
 
   cartAdd=()=>{
     const {productData,cartItems}=this.state;
-    const x=x.push(productData)
+    x.push(productData)
     this.setState({cartItems:x}) ;
     console.log({cartItems});
     <Cart cartItems={cartItems}/>
