@@ -2,7 +2,8 @@ import Header from '../Header'
 import './index.css'
 
 const Cart = props => {
-  // const {cartItems} = props
+  const {cartItems} = props
+  console.log({cartItems})
   
   
   return(

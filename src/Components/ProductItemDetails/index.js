@@ -107,13 +107,17 @@ class ProductItemDetails extends Component {
   }
 
   cartAdd=()=>{
-    const {productData,cartItems}=this.state;
+    const {productData}=this.state;
     x.push(productData)
-    this.setState({cartItems:x}) ;
-    console.log({cartItems});
-    <Cart cartItems={cartItems}/>
+    this.setState({cartItems:x},this.add) ;
+   
+    
    }
-  
+  add=()=>{
+    const {cartItems}=this.state ;
+    console.log({cartItems});
+    <Cart cartItems={cartItems} key={cartItems.id}/>
+  };
   renderProductDetailsView = () => {
    
     const {productData, quantity, similarProductsData} = this.state
