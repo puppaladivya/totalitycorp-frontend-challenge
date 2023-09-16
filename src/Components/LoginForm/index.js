@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 import './index.css'
 
@@ -44,7 +44,9 @@ class LoginForm extends Component {
       body: JSON.stringify(userDetails),
     }
     const response = await fetch(url, options)
+    console.log(response)
     const data = await response.json()
+    console.log(data)
     if (response.ok === true) {
       this.onSubmitSuccess(data.jwt_token)
     } else {
@@ -92,7 +94,7 @@ class LoginForm extends Component {
     const {showSubmitError, errorMsg} = this.state
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
-      return <redirect to="/" />
+      return <Redirect to="/" />
     }
     return (
       <div className="login-form-container">

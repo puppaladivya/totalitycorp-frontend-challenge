@@ -2,20 +2,16 @@ import Header from '../Header'
 import './index.css'
 
 const Cart = props => {
-  const {quantity} = props
-  console.log({quantity})
+  // const {cartItems} = props
+  
   
   return(
+   
     <>
     <Header />
-    <div className="cart-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-cart-img.png"
-        alt="cart"
-        className="cart-img"
-        />
-      <h1>{quantity}hghg</h1>
-    </div>
+    <h1>Cart Items</h1>
+   
+   
   </>
 
   )

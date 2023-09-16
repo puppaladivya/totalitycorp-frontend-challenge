@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import Cart from "../Cart"
 import Header from '../Header'
+
 import SimilarProductItem from '../SimilarProductItem'
 import './index.css'
 
@@ -20,6 +21,7 @@ class ProductItemDetails extends Component {
     similarProductsData: [],
     apiStatus: apiStatusConstants.initial,
     quantity: 1,
+    cartItems:[]
   }
 
   componentDidMount() {
@@ -104,13 +106,17 @@ class ProductItemDetails extends Component {
   }
 
   cartAdd=()=>{
-    const {productData,quantity}=this.state;
-    // console.log(quantity);
-    <Cart productData={productData} key={productData.id} quantity={quantity}/>
-  }
-
+    const {productData,cartItems}=this.state;
+    
+    this.setState({cartItems:[...productData]}) ;
+    console.log({cartItems});
+    <Cart cartItems={cartItems}/>
+}
+  
   renderProductDetailsView = () => {
+   
     const {productData, quantity, similarProductsData} = this.state
+   
     const {
       availability,
       brand,
@@ -172,6 +178,7 @@ class ProductItemDetails extends Component {
             <button type="button" className="button add-to-cart-btn" onClick={this.cartAdd}>
               ADD TO CART
             </button>
+             
           </div>
         </div>
         <h1 className="similar-products-heading">Similar Products</h1>
@@ -209,7 +216,7 @@ class ProductItemDetails extends Component {
         </div>
       </>
     )
-  }
+  };
 }
 
-export default ProductItemDetails
+export default ProductItemDetails;
