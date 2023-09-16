@@ -12,6 +12,7 @@ const apiStatusConstants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
   failure: 'FAILURE',
+
   
 }
 
@@ -107,11 +108,11 @@ class ProductItemDetails extends Component {
 
   cartAdd=()=>{
     const {productData,cartItems}=this.state;
-    
-    this.setState({cartItems:[...productData]}) ;
+    const x=x.push(productData)
+    this.setState({cartItems:x}) ;
     console.log({cartItems});
     <Cart cartItems={cartItems}/>
-}
+   }
   
   renderProductDetailsView = () => {
    
