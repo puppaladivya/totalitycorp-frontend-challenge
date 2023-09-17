@@ -9,6 +9,7 @@ const Home=(props)=>{
         <h1>All Items</h1>
         <section>
             <div className='container-main'>
+                {/*  sending list of products to product component */}
                 {ProductData.map((item,index)=>{
                     return (
                         <Products product={item} key={item.id}/>
