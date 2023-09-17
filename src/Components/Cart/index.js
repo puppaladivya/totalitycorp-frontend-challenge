@@ -1,5 +1,6 @@
 import React from 'react';
 import {useCart} from 'react-use-cart';
+import './index.css'
 const Cart=()=>{
   const {
     isEmpty,totalUniqueItems,
@@ -17,7 +18,7 @@ const Cart=()=>{
                 return (
                   <tr key={index}>
                   <td  className='image'>
-                    <img src={item.image} alt="img" className='image' />
+                    <img src={item.image} alt="img" id='image' />
 
                   </td>
                   <td>{item.title}</td>

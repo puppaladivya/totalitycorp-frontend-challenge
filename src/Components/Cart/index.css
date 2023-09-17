@@ -1,20 +1,5 @@
-.image{
-    height:25px;
-    width:2vw; }
-#menu{
-      float:right;
-      width:200px;
-      height:650px;
-      border-bottom:none;
-      border-left:solid 1px;
-
-}
+#image{
+    height:5vh;
+    width:5vw; }
 
 
-#menu img{
-      width:100%; height:auto;;
-}
-
-td{
-border:solid 1px;
-}

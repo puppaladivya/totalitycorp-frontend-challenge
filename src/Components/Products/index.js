@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {useCart} from 'react-use-cart';
 import './index.css';
 
